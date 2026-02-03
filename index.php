@@ -30,6 +30,16 @@ try {
 // --- LOGIKA DATABASE ---
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 $db_msg = $conn->connect_error ? "<span style='color:red'>Error</span>" : "<span style='color:green'>Connected</span>";
+$produk = [];
+
+if (!$conn->connect_error) {
+    $result = $conn->query("SELECT * FROM product"); //isi product sesuai tabel 
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $produk[] = $row;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
