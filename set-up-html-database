@@ -1,0 +1,21 @@
+ <?php if (count($produk) > 0): ?>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr style="background:#eee;">
+                <th>ID</th>
+                <th>Nama Barang</th>
+                <th>Harga</th>
+                <th>Stok</th>
+            </tr>
+            <?php foreach ($produk as $p): ?>
+                <tr>
+                    <td><?= $p['id']; ?></td>
+                    <td><?= $p['nama_barang']; ?></td> 
+                    <td>Rp <?= number_format($p['harga'],0,',','.'); ?></td>
+                    <td><?= $p['stok']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <p><i>Data produk tidak ditemukan</i></p>
+    <?php endif; ?>
+</div>
