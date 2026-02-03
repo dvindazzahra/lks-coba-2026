@@ -1,0 +1,12 @@
+<?php
+$produk = [];
+
+if (!$conn->connect_error) {
+    $result = $conn->query("SELECT * FROM product");
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $produk[] = $row;
+        }
+    }
+}
+?>
